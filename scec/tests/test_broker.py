@@ -32,3 +32,14 @@ async def test_broker_gets_lowest_market_price_for_symbol_with_multiple_exchange
     broker.add_exchange(kraken_futures)
     _, exchange = await broker.get_lowest_market_buy_price(symbol="ADAEUR", amount=100)
     assert exchange is binance
+
+
+async def test_repr_returns_string_with_exchanges(binance, kraken_futures):
+    broker = Broker()
+    assert repr(broker) == "<Broker exchanges=[]>"
+    broker.add_exchange(binance)
+    broker.add_exchange(kraken_futures)
+    assert repr(broker) in [
+        "<Broker exchanges=[<KrakenFutures>, <Binance>]>",
+        "<Broker exchanges=[<Binance>, <KrakenFutures>]>"
+    ]
