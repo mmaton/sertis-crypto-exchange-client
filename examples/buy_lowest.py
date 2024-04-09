@@ -20,6 +20,7 @@ binance = Binance(
     testnet=True,
     usd_stablecoin="USDT",
 )
+# Sign up for a demo account at https://demo-futures.kraken.com/ and create an API key and secret
 kraken = KrakenFutures(
     api_key=os.environ.get("KRAKEN_API_KEY", "<your kraken futures api key>"),
     api_secret=os.environ.get("KRAKEN_API_SECRET", "<your kraken futures api secret>"),
