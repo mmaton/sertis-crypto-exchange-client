@@ -10,6 +10,8 @@ Built for [Sertis Corp](https://www.sertiscorp.com) as part of their interview p
 - Place and monitor market buy/sell orders
 - Normalized OHLC data across exchanges
 
+![demo](examples/demo.gif)
+
 ## Installation:
 Run `poetry build` to build the package and then `pip install dist/sertis_crypto_exchange_client-0.1.0-py3-none-any.whl` to install it.
 
