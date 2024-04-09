@@ -19,7 +19,7 @@ class Broker:
         self.logger = logger if logger else logging.getLogger(__name__)
 
     def __repr__(self):
-        return f"<{self.__class__.__name__} exchanges={self.exchanges}>"
+        return f"<{self.__class__.__name__} exchanges=[{', '.join([str(e) for e in self.exchanges])}]>"
 
     def add_exchange(self, exchange_instance: CryptocurrencyExchange) -> None:
         """

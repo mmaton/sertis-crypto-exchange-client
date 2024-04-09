@@ -4,6 +4,7 @@ import pytest
 from requests import Response
 from tenacity import RetryError
 
+from scec import Broker
 from scec.exchanges.exceptions import ExchangeBadResponseError
 
 
@@ -56,3 +57,11 @@ async def test_get_order_book_with_connection_errors_is_retried(mock_session_sen
     ]
     binance.get_order_book("ADAEUR")
     assert mock_session_send.call_count == 2
+
+
+async def test_repr_returns_string_with_exchanges(binance, kraken_futures):
+    broker = Broker()
+    assert repr(broker) == "<Broker exchanges=[]>"
+    broker.add_exchange(binance)
+    broker.add_exchange(kraken_futures)
+    assert repr(broker) == "<Broker exchanges=[<KrakenFutures>, <Binance>]>"
