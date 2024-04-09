@@ -1,3 +1,5 @@
+![tests](https://github.com/mmaton/sertis-crypto-exchange-client/actions/workflows/python-checks.yml/badge.svg)
+
 # Sertis Crypto Exchange Client
 
 A Python library for buying and selling cryptocurrencies by pair across multiple exchanges.
