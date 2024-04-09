@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "scec"
+version = "0.1.0"
+description = "Execute market buy/sell orders on the cheapest of multiple exchanges"
+authors = ["Max Maton <me@mmaton.com>"]
+license = "LICENSE.txt"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9, <4"
+websockets = "^12.0"
+requests = "^2.31.0"
+tenacity = "^8.2.3"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.1.1"
+mypy = "^1.9.0"
+ruff = "^0.3.5"
+pytest-asyncio = "^0.23.6"
+types-requests = "^2.31.0.20240406"
+pytest-cov = "^5.0.0"
+pydoc-markdown = "^4.8.2"
+
+[virtualenvs]
+# Install .venv in the project directory (handy for local development, typically overridden with container env vars)
+in-project = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+############################################
+# Other tooling configurations below
+############################################
+[tool.mypy]
+exclude = [".venv"]
+
+[tool.ruff]
+exclude = [".venv"]
+line-length = 120
+indent-width = 4
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+omit = ["**/*/tests/*"]
+
+# Run tasks with e.g `poe lint`
+[tool.poe.tasks]
+test = "pytest -sv --cov"
+lint = "ruff check ."
+mypy = "mypy ."
+docs = "poetry run pydoc-markdown -I scec > docs.md"  # I prefer to use readthedocs, but it requires more setup!
