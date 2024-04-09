@@ -1,4 +1,4 @@
-![tests](https://github.com/mmaton/sertis-crypto-exchange-client/actions/workflows/python-checks.yml/badge.svg)
+![https://github.com/mmaton/sertis-crypto-exchange-client/actions/workflows/python-checks.yml](https://github.com/mmaton/sertis-crypto-exchange-client/actions/workflows/python-checks.yml/badge.svg)
 
 # Sertis Crypto Exchange Client
 
