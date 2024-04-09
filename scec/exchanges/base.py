@@ -98,6 +98,9 @@ class CryptocurrencyExchange(ABC):
         # Initialise pairs
         self.pairs = self.load_exchange_pairs()
 
+    def __repr__(self):
+        return f"<{self.__class__.__name__}>"
+
     @property
     @abstractmethod
     def name(self) -> str:

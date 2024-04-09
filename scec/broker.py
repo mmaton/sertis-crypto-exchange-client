@@ -18,6 +18,9 @@ class Broker:
         self.exchanges: Set[CryptocurrencyExchange] = exchanges or set()
         self.logger = logger if logger else logging.getLogger(__name__)
 
+    def __repr__(self):
+        return f"<{self.__class__.__name__} exchanges={self.exchanges}>"
+
     def add_exchange(self, exchange_instance: CryptocurrencyExchange) -> None:
         """
         Method to connect a new exchange to the broker. It is possible to add two separate
