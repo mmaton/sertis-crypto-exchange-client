@@ -4,7 +4,6 @@ import pytest
 from requests import Response
 from tenacity import RetryError
 
-from scec import Broker
 from scec.exchanges.exceptions import ExchangeBadResponseError
 
 
